@@ -1,0 +1,71 @@
+version: 2
+
+defaults: &defaults
+  docker:
+    - image: circleci/node:10.15
+  working_directory: ~/app
+
+jobs:
+  setup:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: Upgrade yarn
+          command: sudo npm install -g yarn
+      - run:
+          name: Install dependencies
+          command: yarn
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: .
+          paths: '*'
+  lint-js:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Lint files
+          command: yarn lint:js
+  lint-deps:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Lint dependencies
+          command: yarn lint:deps
+  test-js:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+         name: Run tests
+         command: yarn test:js
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - setup
+      - lint-js:
+          requires:
+            - setup
+      - lint-deps:
+          requires:
+            - setup
+      - test-js:
+          requires:
+            - setup
