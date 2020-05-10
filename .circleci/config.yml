@@ -3,14 +3,14 @@ version: 2
 defaults: &defaults
   docker:
     - image: circleci/node:10.15
-  working_directory: /app
+  working_directory: ~/app
 
 jobs:
   setup:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /app
+          at: ~/app
       - checkout
       - restore_cache:
           keys:
@@ -34,7 +34,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /app
+          at: ~/app
       - run:
           name: Lint files
           command: yarn lint:js
@@ -42,7 +42,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /app
+          at: ~/app
       - run:
           name: Lint dependencies
           command: yarn lint:deps
@@ -50,7 +50,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /app
+          at: ~/app
       - run:
          name: Run tests
          command: yarn test:js
