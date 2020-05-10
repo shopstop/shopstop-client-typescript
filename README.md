@@ -1,6 +1,6 @@
 # shopstop-client-js
 
-TBC
+[![CircleCI](https://circleci.com/gh/shopstop/shopstop-client-js.svg?style=svg&circle-token=9e711384dde961c3bcf65ea8586600d49f38727e)](https://circleci.com/gh/shopstop/shopstop-client-js)
 
 A JavaScript API Client for the ShopStop API.
 
