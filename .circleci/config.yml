@@ -5,7 +5,6 @@ defaults: &defaults
     - image: circleci/node:10.15
   working_directory: /app
 
-
 jobs:
   setup:
     <<: *defaults
@@ -52,7 +51,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /app
-     - run:
+      - run:
          name: Run tests
          command: yarn test:js
 
