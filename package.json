@@ -1,6 +1,6 @@
 {
   "name": "shopstop-client-js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A JavaScript API Client for the ShopStop API",
   "main": "src/index.ts",
   "repository": "git@github.com:shopstop/shopstop-client-js.git",
