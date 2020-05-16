@@ -1,7 +1,7 @@
-import { AbstractClient } from './client/Abstract';
 import { AuthClient } from './client/Auth';
-import { applyMixins } from './util/mixins';
+
+// [Hack] Mixins do not work when imported
+class ApiAuthClient extends AuthClient {}
 
 // @ts-ignore
-export class ApiClient extends AbstractClient implements AuthClient {}
-applyMixins(ApiClient, [AuthClient]);
+export class ApiClient extends ApiAuthClient {}
