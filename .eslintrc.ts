@@ -1,5 +1,3 @@
-import paths from './config/paths';
-
 export default {
     extends: [
         '@werkzeugkiste',
@@ -13,7 +11,6 @@ export default {
     settings: {
         'import/resolver': {
             node: {
-                paths: paths.resolveModules,
                 extensions: ['.js', '.ts'],
             },
         },
