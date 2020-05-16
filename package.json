@@ -1,6 +1,6 @@
 {
   "name": "shopstop-client-typescript",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A TypeScript API Client for the ShopStop API",
   "main": "src/index.ts",
   "repository": "git@github.com:shopstop/shopstop-client-typescript.git",

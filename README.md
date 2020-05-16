@@ -1,8 +1,8 @@
-# shopstop-client-js
+# shopstop-client-typescript
 
-[![CircleCI](https://circleci.com/gh/shopstop/shopstop-client-js.svg?style=svg&circle-token=9e711384dde961c3bcf65ea8586600d49f38727e)](https://circleci.com/gh/shopstop/shopstop-client-js)
+[![CircleCI](https://circleci.com/gh/shopstop/shopstop-client-typescript.svg?style=svg&circle-token=9e711384dde961c3bcf65ea8586600d49f38727e)](https://circleci.com/gh/shopstop/shopstop-client-typescript)
 
-A JavaScript API Client for the ShopStop API.
+A Typescript API Client for the ShopStop API.
 
 ## Dependencies
 
