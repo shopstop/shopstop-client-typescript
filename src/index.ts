@@ -1,8 +1,6 @@
 import { ApiClient } from './ApiClient';
 import { ApiClientConfig, REGION_UK } from './ApiClientConfig';
 
-module.exports = {
-    ApiClient,
-    ApiClientConfig,
-    REGION_UK,
-};
+export class ShopStopApiClient extends ApiClient {}
+export class ShopStopApiClientConfig extends ApiClientConfig {}
+export const SHOPSTOP_REGION_UK = REGION_UK;

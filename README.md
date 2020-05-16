@@ -19,5 +19,4 @@ $ make
 help                           Show this help message.
 fmt                            Run project code formatting
 test                           Run project tests
-build                          Run project build to dist
 ```
