@@ -1,29 +1,19 @@
-
 {
-  "declaration": true,
-  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "@typeskrift/tsconfig",
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+    "alwaysStrict": true,
+    "incremental": true,
+    "lib": ["es6", "dom"],
+    "module": "commonjs",
     "moduleResolution": "node",
+    "outDir": "dist",
+    "removeComments": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "preserve",
-    "baseUrl": "./src",
-    "strictNullChecks": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "paths": {
-      "*": ["*"]
-    }
+    "sourceMap": true,
+    "strictNullChecks": false,
+    "target": "es2018",
+    "typeRoots": ["node_modules/@types"]
   },
-  "include": ["src"]
+  "include": ["src/**/**.ts"],
+  "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts"]
 }

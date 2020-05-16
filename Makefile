@@ -20,6 +20,10 @@ test: ## Run project tests
 	@$(MAKE) lint-deps
 	@$(MAKE) test-js
 
+.PHONY: build
+build: ## Run project build
+	@$(MAKE) build-js
+
 # -------------------------------------- #
 # ----- HELPER COMMANDS BELOW HERE ----- #
 # -------------------------------------- #
@@ -40,3 +44,7 @@ lint-deps:
 .PHONY: test-js
 test-js:
 	@yarn run test:js
+
+.PHONY: build-js
+build-js:
+	@yarn run build
