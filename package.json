@@ -1,19 +1,22 @@
 {
-  "name": "shopstop-client-typescript",
-  "version": "0.0.5",
+  "name": "@shopstop/shopstop-client-typescript",
+  "version": "0.0.6",
   "description": "A TypeScript API Client for the ShopStop API",
-  "main": "src/index.ts",
   "repository": "git@github.com:shopstop/shopstop-client-typescript.git",
   "author": "danbelden <me@danbelden.com>",
   "license": "MIT",
+  "files": ["/dist"],
+  "main": "dist/index",
+  "types": "dist/index",
   "engines": {
-    "node": ">=10.15.0",
-    "yarn": "^1.17.0"
+    "node": ">=10.x"
   },
   "scripts": {
+    "build": "rimraf dist && tsc",
     "fmt:js": "eslint --fix --ext .js,.ts src/ test/",
     "lint:js": "eslint --ext .js,.ts src/ test/",
     "lint:deps": "depcruise -c .dependency-cruiser.js src/",
+    "prepare" : "npm run build",
     "test:js": "jest --env=jsdom"
   },
   "devDependencies": {
@@ -26,6 +29,7 @@
     "@babel/register": "^7.9.0",
     "@typescript-eslint/eslint-plugin": "^2.28.0",
     "@typescript-eslint/parser": "^2.28.0",
+    "@typeskrift/tsconfig": "^0.1.2",
     "@werkzeugkiste/eslint-config": "^1.1.1",
     "@werkzeugkiste/prettier-config": "^1.1.0",
     "babel-eslint": "^10.1.0",
@@ -43,16 +47,5 @@
     "prettier": "^2.0.5",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.3"
-  },
-  "dependencies": {
-    "@types/node": "^13.13.2",
-    "path": "^0.12.7",
-    "tslib": "^1.11.1"
-  },
-  "peerDependencies": {
-    "eslint-import-resolver-typescript": "^2.0.0",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^3.0.0",
-    "prettier": "^1.19.1"
   }
 }
