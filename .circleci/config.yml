@@ -10,7 +10,7 @@ filters-all-branches-and-tags: &filters-all-branches-and-tags
     branches:
       only: /.*/
     tags:
-      only: /.*/
+      only: /^v.*/
 
 filters-tags-only: &filters-tags-only
   filters:
