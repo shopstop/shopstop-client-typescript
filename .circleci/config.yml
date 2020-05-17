@@ -7,17 +7,17 @@ defaults: &defaults
 
 filters-all-branches-and-tags: &filters-all-branches-and-tags
   filters:
+    branches:
+      only: /.*/
     tags:
       only: /.*/
-    branches:
-      ignore: /.*/
 
 filters-tags-only: &filters-tags-only
   filters:
-    tags:
-      only: /^v.*/
     branches:
       ignore: /.*/
+    tags:
+      only: /^v.*/
 
 jobs:
   setup:
