@@ -5,6 +5,20 @@ defaults: &defaults
     - image: circleci/node:10.15
   working_directory: ~/app
 
+filters-all-branches-and-tags: &filters-all-branches-and-tags
+  filters:
+    tags:
+      only: /.*/
+    branches:
+      ignore: /.*/
+
+filters-tags-only: &filters-tags-only
+  filters:
+    tags:
+      only: /^v.*/
+    branches:
+      ignore: /.*/
+
 jobs:
   setup:
     <<: *defaults
@@ -54,18 +68,39 @@ jobs:
       - run:
          name: Run tests
          command: yarn test:js
+  npm-publish:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Setup NPM registry auth
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: NPM publish
+          command: npm publish
 
 workflows:
   version: 2
   workflow:
     jobs:
-      - setup
+      - setup:
+          <<: *filters-all-branches-and-tags
       - lint-js:
+          <<: *filters-all-branches-and-tags
           requires:
             - setup
       - lint-deps:
+          <<: *filters-all-branches-and-tags
           requires:
             - setup
       - test-js:
+          <<: *filters-all-branches-and-tags
           requires:
             - setup
+      - npm-publish:
+          <<: *filters-tags-only
+          requires:
+            - lint-js
+            - lint-deps
+            - test-js
