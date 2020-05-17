@@ -1,12 +1,15 @@
 import { HttpClient } from './http/HttpClient';
 import { XhrHttpClient } from './http/Xhr';
 
+export const BASE_API_URL_LOCAL = 'http://127.0.0.1';
+export const BASE_API_URL_UK = 'https://api.shopstop.co.uk';
+export const ENV_BASE_API_URL = 'SHOPSTOP_BASE_API_URL';
 export const REGION_TEST = 'Testing';
 export const REGION_UK = 'UK';
 
 const baseApiUrlMap = new Map();
-baseApiUrlMap.set(REGION_TEST, 'http://127.0.0.1');
-baseApiUrlMap.set(REGION_UK, 'https://api.shopstop.co.uk');
+baseApiUrlMap.set(REGION_TEST, BASE_API_URL_LOCAL);
+baseApiUrlMap.set(REGION_UK, BASE_API_URL_UK);
 
 export class ApiClientConfig {
     private httpClient: HttpClient;
@@ -32,8 +35,11 @@ export class ApiClientConfig {
     }
 
     public getBaseApiUrl(): string {
-        const region = this.getRegion();
+        if (ENV_BASE_API_URL in process.env) {
+            return process.env.ENV_BASE_API_URL;
+        }
 
+        const region = this.getRegion();
         if (baseApiUrlMap.has(region)) {
             return baseApiUrlMap.get(region);
         }
