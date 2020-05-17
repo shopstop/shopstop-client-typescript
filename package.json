@@ -1,11 +1,13 @@
 {
   "name": "@shopstop/shopstop-client-typescript",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A TypeScript API Client for the ShopStop API",
   "repository": "git@github.com:shopstop/shopstop-client-typescript.git",
   "author": "danbelden <me@danbelden.com>",
   "license": "MIT",
-  "files": ["/dist"],
+  "files": [
+    "/dist"
+  ],
   "main": "dist/index",
   "types": "dist/index",
   "engines": {
@@ -16,7 +18,7 @@
     "fmt:js": "eslint --fix --ext .js,.ts src/ test/",
     "lint:js": "eslint --ext .js,.ts src/ test/",
     "lint:deps": "depcruise -c .dependency-cruiser.js src/",
-    "prepare" : "npm run build",
+    "prepare": "npm run build",
     "test:js": "jest --env=jsdom"
   },
   "devDependencies": {
@@ -47,5 +49,9 @@
     "prettier": "^2.0.5",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@types/node": "^14.0.1",
+    "xmlhttprequest": "^1.8.0"
   }
 }

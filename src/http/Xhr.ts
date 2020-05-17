@@ -2,6 +2,8 @@ import { HttpClient } from './HttpClient';
 import { HttpRequest } from './HttpRequest';
 import { HttpResponse } from './HttpResponse';
 
+const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+
 export class XhrHttpClient implements HttpClient {
     public do(req: HttpRequest): HttpResponse {
         const xhr = new XMLHttpRequest();
