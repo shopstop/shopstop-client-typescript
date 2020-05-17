@@ -99,8 +99,7 @@ workflows:
           requires:
             - setup
       - npm-publish:
-#          <<: *filters-tags-only
-          <<: *filters-all-branches-and-tags
+          <<: *filters-tags-only
           requires:
             - lint-js
             - lint-deps
