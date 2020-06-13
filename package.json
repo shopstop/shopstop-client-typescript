@@ -1,6 +1,6 @@
 {
   "name": "@shopstop/shopstop-client-typescript",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A TypeScript API Client for the ShopStop API",
   "repository": "git@github.com:shopstop/shopstop-client-typescript.git",
   "author": "danbelden <me@danbelden.com>",
