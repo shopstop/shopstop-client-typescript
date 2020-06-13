@@ -36,7 +36,7 @@ export class ApiClientConfig {
 
     public getBaseApiUrl(): string {
         if (ENV_BASE_API_URL in process.env) {
-            return process.env.ENV_BASE_API_URL;
+            return process.env[String(ENV_BASE_API_URL)];
         }
 
         const region = this.getRegion();
